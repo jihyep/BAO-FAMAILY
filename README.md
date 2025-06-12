@@ -13,5 +13,4 @@ It features a cute and creative layout centered around the theme of bao-family.
 
 ## 💡 Author's Note
 
-All HTML structure and visual designs (including images and layout) were created entirely by the author.  
-This project was not only a coding exercise, but also a way to express creativity through simple web technologies 💖
+All HTML structure and visual designs (including images and layout) were created entirely by the author. 💖
