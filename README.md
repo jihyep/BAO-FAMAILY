@@ -14,3 +14,10 @@ It features a cute and creative layout centered around the theme of bao-family.
 ## 💡 Author's Note
 
 All HTML structure and visual designs (including images and layout) were created entirely by the author. 💖
+
+---
+## 🔗 More Projects
+
+Looking for more?  
+👉 [Check out my other repositories](https://github.com/jihyep)
+
