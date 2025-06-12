@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>BAO FAMILY</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+@font-face {
+                            font-family: 'yg-jalnan';
+                            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+
+            @font-face {
+                            font-family: 'LeeSeoyun';
+                            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+
+                        @font-face {
+    font-family: 'Pretendard';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video { margin:0; padding:0; border:0; outline:0; box-sizing:border-box; background:transparent; }
+html, body { width:100%; scroll-behavior:smooth; }
+html { font-size:10px; }
+body { font-family:'LeeSeoyun', sans-serif; color:#333; text-align:center; }
+ul, ol { list-style-type:none; }
+a { box-sizing:border-box; color:#333; text-decoration:none; cursor:pointer; }
+a:hover, a:active { text-decoration:none; }
+button { margin:0; padding:0; box-sizing:border-box; border:0 none; background-color:transparent; vertical-align:middle; color:#333; font-family:'LeeSeoyun', sans-serif; cursor:pointer; outline:none; }
+figcaption { display:none; }
+img { width:100%; vertical-align:top; }
+.hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0, 0, 0, 0); border:0; }
+.body-stop { overflow:hidden; }
+::-webkit-scrollbar { width:4px; background-color:transparent; -webkit-appearance:none; }
+::-webkit-scrollbar:vertical { width:4px; background-color:transparent; }
+::-webkit-scrollbar-button { width:0; height:15px; }
+::-webkit-scrollbar-button:end:increment { height:50px; }
+::-webkit-scrollbar-track { background-color:transparent; }
+::-webkit-scrollbar-thumb { background-color:#9da0a1; border-radius:1rem; opacity:.5; }
+
+
+.slick-dots li {
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-width: 2px;
+            border-style: solid;
+            background-color: #FFF;
+            margin: 0 0.25rem;
+            border-radius: 50%;
+            text-indent: -9999px;
+            cursor: pointer;
+        }
+
+        .sec {
+            padding: 0 2.4rem;
+            z-index: 3;
+        }
+
+
+        .sec .info-box {
+            position: relative;
+            padding: 2.1rem 0 3.5rem;
+            margin-top: -3.5rem;
+            z-index: 1;
+        }
+
+        .sec .info-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1.4rem;
+            width: 100%;
+            height: 1.4rem;
+        }
+
+        .sec .info-box h3 {
+            margin: 0 auto;
+        }
+
+        .sec .info-box p {
+            color: #3B3666;
+            margin-top: 1.5rem;
+        }
+
+
+.wrapper { overflow-x:hidden; scroll-behavior:smooth; }
+.sec::before { content:''; position:absolute; left:0; top:-2.4rem; width:100%; height:2.4rem; }
+.sec h2 { margin:0 auto 1.5rem; }
+.sec h2::before,
+.sec h2::after { content:''; position:absolute; z-index:2; }
+.sec p { font-size:1.9rem; line-height:1.2; letter-spacing:-0.76px; }
+.sec em { display:block; font-family:'Pretendard'; font-size:1.2rem; line-height:1.5; letter-spacing:-0.96px; font-style:normal; margin-top:0.9rem; }
+.list-info { text-align:left; margin:1.5rem auto 0; }
+.list-info li { position:relative; font-size:1.7rem; line-height:1.5; letter-spacing:-0.68px; padding-left:2.6rem; }
+.list-info li em { letter-spacing:-0.48px; margin-top:0; }
+.list-info li::before { content:''; position:absolute; left:0; top:0; width:2.4rem; height:2.4rem; background-size:100% auto; }
+.list-caution { text-align:left; word-wrap:break-word; word-break:keep-all; }
+.list-caution li { position:relative; font-family:'Pretendard'; font-size:1.2rem; line-height:1.5; letter-spacing:-0.48px; padding-left:0.7rem; margin-bottom:0.5rem; }
+.list-caution li:last-child { margin-bottom:0; }
+.list-caution li::before { content:'쨌'; position:absolute; left:0; top:0; }
+.txt-place { font-size:1.7rem; line-height:1.5; letter-spacing:-0.68px; }
+.txt-place i { display:inline-block; width:2.4rem; height:2.4rem; background-size:100% auto; vertical-align:middle; margin-top:-0.4rem; margin-right:0.2rem; }
+
+nav { overflow:hidden; display:none; position:fixed; left:0; top:0; right:0; bottom:0; z-index:11; width:100%; max-width:720px; height:100%; margin:auto; }
+nav .nav-wrap { display:flex; flex-wrap:wrap; align-content:space-between; position:absolute; top:0; right:0; bottom:0; width:100%; height:100%; background:#fff no-repeat center top; background-size:cover; overflow-y:auto; }
+nav .nav-wrap .nav-wrap-inner { flex:1; width:100%; margin-bottom:2rem; }
+nav .nav-wrap .nav-wrap-inner::before { content:''; position:absolute; left:0; top:0; width:32rem; height:9rem; background:url('img/bg-nav-top.png') no-repeat center top; background-size:cover; z-index:12; }
+nav .nav-wrap .btm-img { background:url('img/bg-nav-btm.png') no-repeat center top; background-size:cover; width:36rem; height:14.4rem; }
+nav .logo { width:24rem; height:10.8rem; margin:8rem auto 4rem; }
+nav .logo > a { display:block; }
+nav .btn-close { position:absolute; top:2.4rem; right:2.4rem; width:5rem; height:5rem; background:url('img/btn-nav-close.png') no-repeat center; background-size:100% auto; color:transparent; font-size:0; text-indent:-9999px; z-index:13; }
+nav .depth1 { margin:0 2rem; }
+nav .depth1 > li { position:relative; border-radius:3rem; background:#FFF; padding:1.9rem 0; margin-bottom:1.2rem; z-index:13; }
+nav .depth1 > li > a { display:block; position:relative; padding:0 3.5rem 0 7rem; text-align:left; }
+nav .depth1 > li > a::before { content:''; position:absolute; left:2rem; top:50%; transform:translateY(-50%); width:4rem; height:4rem; }
+nav .depth1 > li > a::after { content:''; position:absolute; right:1.8rem; top:calc(50% - 0.4rem); width:1.2rem; height:0.8rem; transition:.3s; }
+nav .depth1 > li > a > img { width:auto; height:2.2rem; }
+nav .depth1 > li:last-child { margin-bottom:0; }
+nav .depth1 > li:nth-child(1) { box-shadow:0px 0px 6px 0px rgba(95, 95, 95, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); }
+nav .depth1 > li:nth-child(1) > a::before { background:url('img/icon-depth1-nav1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(1) > a::after { background:url('img/icon-depth1-arrow1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(1) > .depth2 > li > a::before { background-image:url('img/icon-depth2-nav1.png'); background-size:100% auto; }
+nav .depth1 > li.on:nth-child(1) { border:2px solid #282828; box-shadow:0px 0px 6px 2px rgba(98, 98, 98, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); }
+nav .depth1 > li:nth-child(2) { box-shadow:0px 0px 6px 0px rgba(95, 95, 95, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); }
+nav .depth1 > li:nth-child(2) > a::before { background:url('img/icon-depth1-nav1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(2) > a::after { background:url('img/icon-depth1-arrow1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(2) > .depth2 > li > a::before { background-image:url('img/icon-depth2-nav1.png'); background-size:100% auto; }
+nav .depth1 > li.on:nth-child(2) { box-shadow:0px 0px 6px 2px rgba(98, 98, 98, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); border:2px solid #282828; }
+nav .depth1 > li:nth-child(3) { box-shadow:0px 0px 6px 0px rgba(95, 95, 95, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); }
+nav .depth1 > li:nth-child(3) > a::before { background:url('img/icon-depth1-nav1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(3) > a::after { background:url('img/icon-depth1-arrow1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(3) > .depth2 > li > a::before { background-image:url('img/icon-depth2-nav1.png'); background-size:100% auto; }
+nav .depth1 > li.on:nth-child(3) { box-shadow:0px 0px 6px 2px rgba(98, 98, 98, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); border:2px solid #282828; }
+nav .depth1 > li:nth-child(4) { box-shadow:0px 0px 6px 0px rgba(95, 95, 95, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); }
+nav .depth1 > li:nth-child(4) > a::before { background:url('img/icon-depth1-nav1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(4) > a::after { background:url('img/icon-depth1-arrow1.png') no-repeat; background-size:100% auto; }
+nav .depth1 > li:nth-child(4) > .depth2 > li > a::before { background-image:url('img/icon-depth2-nav1.png'); background-size:100% auto; }
+nav .depth1 > li.on:nth-child(4) { box-shadow:0px 0px 6px 2px rgba(98, 98, 98, 0.8) inset, 0px 8px 10px 0px rgba(86, 168, 224, 0.12); border:2px solid #282828; }
+nav .depth1 > li.on { padding:1.7rem 0; }
+nav .depth1 > li.on > a { padding:0 0 0 6.8rem; }
+nav .depth1 > li.on > a::before { left:1.8rem; }
+nav .depth1 > li.on > a::after { right:1.7rem; transform:rotateZ(180deg); }
+nav .depth2 { display:none; padding-left:7rem; margin-top:2.1rem; }
+nav .depth2 > li { margin-bottom:1.6rem; }
+nav .depth2 > li:last-child { margin-bottom:0; }
+nav .depth2 > li > a { position:relative; display:block; font-size:2rem; color:#524D85; text-align:left; letter-spacing:-0.4px; }
+nav .depth2 > li > a::before { content:''; position:absolute; left:-2rem; top:50%; transform:translateY(-50%); width:1.4rem; height:1.4rem; background-repeat:no-repeat; background-position:center; }
+
+#main .btn-nav { position:fixed; right:1.5rem; top:2.4rem; z-index:10; width:6.5rem; height:6.5rem; background:url('img/btn-nav.png') no-repeat center; background-size:100% auto; color:transparent; font-size:0; text-indent:-9999px; }
+.btn-top { display:none; position:fixed; z-index:10; right:1.6rem; bottom:1rem; width:6.5rem; height:6rem; background:url('img/btn-top.png') no-repeat center; background-size:100% auto; color:transparent; font-size:0; text-indent:-9999px; }
+.btn-top { right:calc(50% - 328px); }
+#garden { position:relative; width:100%; background:#FFF; margin-top:0.4rem; padding-top:3.8rem; padding-bottom:11.4rem; } 
+#garden h2 { width:24.8rem; height:13rem; }
+#garden h2 + p { color:#000; } 
+#garden .map { position:relative;  }
+
+
+#tab { position:relative; padding:0 1.2rem; margin-top:-8.1rem; z-index:1; }
+#tab > li { border-width:2px; border-style:solid; border-radius:2.5rem 2.5rem 0px 0px; box-shadow:0px -4px 20px 0px rgba(0, 0, 0, 0.10); margin-top:-2.1rem; }
+#tab > li .tab-tit a { position:relative; display:block; padding:0 0 2.1rem; }
+#tab > li .tab-tit a::after { content:''; position:absolute; right:1.4rem; top:3rem; width:1.6rem; height:0.9rem; background:url('icon-depth1-arrow1.png') no-repeat; background-size:100% auto; transition:.3s; }
+#tab > li .tab-tit a img { max-width:33.3rem; max-height:6.7rem; } 
+#tab > li .tab-cont { display:none; padding:0 1.2rem 5rem; }
+#tab > li .tab-cont p { margin-top:2.5rem; }
+#tab > li .tab-cont em { color:#000; margin-bottom:-0.5rem; }
+#tab > li .tab-cont .slider { border-width:2px; border-style:solid; border-radius:1.5rem; overflow:hidden; }
+#tab > li:nth-child(1) { border-color:000; background:#FFF; } /* 러바오 */
+#tab > li:nth-child(1) .tab-tit a::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='18' viewBox='0 0 32 18' fill='none'%3E%3Cpath d='M6 4L16 14L26 4' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+#tab > li:nth-child(1) .tab-cont .slider { border-color:000; }
+#tab > li:nth-child(1) .tab-cont p { color:#000; }
+#tab > li:nth-child(2) { border-color:#000; background:#FFF; } /* 아이바오 */
+#tab > li:nth-child(2) .tab-tit a::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='18' viewBox='0 0 32 18' fill='none'%3E%3Cpath d='M6 4L16 14L26 4' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+#tab > li:nth-child(2) .tab-cont .slider { border-color:#000; }
+#tab > li:nth-child(2) .tab-cont p { color:#000; }
+#tab > li:nth-child(3) { border-color:#000; background:#FFF; } /* 푸바오 */
+#tab > li:nth-child(3) .tab-tit a::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='18' viewBox='0 0 32 18' fill='none'%3E%3Cpath d='M6 4L16 14L26 4' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+#tab > li:nth-child(3) .tab-cont .slider { border-color:#000; }
+#tab > li:nth-child(3) .tab-cont p { color:#000; }
+#tab > li:nth-child(4) { border-color:#000; background:#fff; } /* 루이후이 */
+#tab > li:nth-child(4) .tab-tit a::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='18' viewBox='0 0 32 18' fill='none'%3E%3Cpath d='M6 4L16 14L26 4' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+#tab > li:nth-child(4) .tab-cont .slider { border-color:#000; }
+#tab > li:nth-child(4) .tab-cont p { color:#000; }
+#tab > li:last-child { border-radius:2.5rem; }
+#tab > li:last-child .tab-tit > a { padding:0; }
+#tab > li:last-child .tab-cont { padding:0 1.2rem 3rem; }
+#tab > li.on .tab-tit > a { padding-bottom:0.2rem; }
+#tab > li.on .tab-tit > a::after { transform:rotateZ(180deg); }
+#tab > li.on .tab-cont { display:block; }
+#tab > li.on { background:#FFF; }
+#garden .map { height: 540px;; padding:50px 40px 0; }
+
+footer { padding:0.6rem 0; background:#EDEDFF; text-align:center; }
+footer .copyright { color:#484778; font-size:1.2rem; line-height:1.5; }
+
+
+@media (min-width:768px) { 
+	html { height:100%; font-size:13px; }
+	body::-webkit-scrollbar { display:none; }
+    body { width:100%; height:100%; background-size:cover; }
+
+
+	.slick-prev { left:28px; }
+	.slick-next { right:28px; }
+	.slider-wrap { padding:0 64px; }
+	.slider-wrap .slick-slide { border-radius:400px 400px 50px 50px; }
+	.slider-wrap .slick-arrow { top:470px; }
+
+	.wrapper { overflow-y:scroll; width:720px; height:100%; margin:0 auto; -ms-overflow-style:none; scrollbar-width:none; }
+	.wrapper::-webkit-scrollbar { display:none; }
+	.sec em { font-size:18px; }
+	.list-caution li { font-size:18px; }
+
+	nav .nav-wrap .nav-wrap-inner::before { width:640px; height:180px; }
+	nav .nav-wrap .btm-img { width:100%; height:288px; }
+	nav .logo { width:460px; height:207px; margin:160px auto 60px; }
+	nav .depth1 { margin:0 60px; }
+
+	#main .btn-nav { right:calc(50% - 330px); }
+    #tab { padding:0 40px; }
+	#tab > li .tab-cont { padding:0 22px 5rem; }
+	#tab > li .tab-cont .slick-slide { width:620px; height:396px; }
+	#tab > li .tab-cont .slick-slide img { height:100%; }
+	#tab > li:last-child .tab-cont { padding:0 22px 3rem; }
+
+	.btn-top { right:calc(50% - 328px); }
+}
+
+@media(max-width:359px) {
+	html { font-size:calc(4px + 1.66667vw); }
+}
+
+@media(min-width:360px)and (max-width:500px) {
+	html { font-size:calc(-4.4px + 4vw); }
+}
+
+@media(min-width:501px) {
+	html { font-size:12px; }
+}
+
+@media(min-width:720px)and (hover:hover)and (pointer:fine) {
+	html { font-size:14px; }
+}
+
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <nav>
+                <div class="nav-wrap">
+                    <div class="nav-wrap-inner">
+                        <h1 class="logo"><a href="index.html#main" title="BAO FAMILY"><img src="img/title.png" alt="BAO FAMILY" /></a></h1>
+                        <ul class="depth1">
+                            <li>
+                                <a href="javascript:void(0);" title="바오패밀리" class="btn_content_click" data-contents-btn="nev_바오패밀리"><img src="img/img-nav-txt1.png" alt="바오패밀리" /></a>
+                                <ul class="depth2">
+                                    <li><a href="bao1.html#garden" title="바오패밀리 족보" class="btn_content_click" data-contents-btn="nev_바오패밀리 족보">바오패밀리 족보</a></li>
+                                    <li><a href="bao1.html#tab" title="바오패밀리 소개" class="btn_content_click" data-contents-btn="nev_바오패밀리 소개">바오패밀리 소개</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-sub">
+                                <a href="javascript:void(0);" title="판다월드" class="btn_content_click" data-contents-btn="nev_판다월드"><img src="img/img-nav-txt2.png" alt="판다월드" /></a>
+                                <ul class="depth2" data-id="event">
+                                    <li><a href="bao2.html#event" title="바오하우스" class="btn_content_click" data-contents-btn="nev_바오하우스">바오하우스</a></li>
+                                    <li><a href="bao2.html#event" title="판다지아" class="btn_content_click" data-contents-btn="nev_판다지아">판다지아</a></li>
+                                    <li><a href="bao2.html#event" title="판다 라이브" class="btn_content_click" data-contents-btn="nev_판다 라이브">판다 라이브</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" title="바오패밀리 MD&FOOD" class="btn_content_click" data-contents-btn="nev_바오패밀리 MD&FOOD"><img src="img/img-nav-txt3.png" alt="바오패밀리 MD&FOOD" /></a>
+                                <ul class="depth2">
+                                    <li><a href="bao3.html#md" title="바오패밀리 MD" class="btn_content_click" data-contents-btn="nev_바오패밀리 MD">바오패밀리 MD</a></li>
+                                    <li><a href="bao3.html#food" title="바오패밀리 FOOD" class="btn_content_click" data-contents-btn="nev_바오패밀리 FOOD">바오패밀리 FOOD</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" title="엔터테인먼트" class="btn_content_click" data-contents-btn="nev_엔터테인먼트"><img src="img/img-nav-txt4.png" alt="엔터테인먼트" /></a>
+                                <ul class="depth2">
+                                    <li><a href="bao4.html#gang" title="전지적 할부지 시점" class="btn_content_click" data-contents-btn="nev_전지적 할부지 시점">전지적 할부지 시점</a></li>
+                                    <li><a href="bao4.html#song" title="판다와쏭" class="btn_content_click" data-contents-btn="nev_판다와쏭">판다와쏭</a></li>
+                                    <li><a href="bao4.html#obao" title="오와둥둥" class="btn_content_click" data-contents-btn="nev_오와둥둥">오와둥둥</a></li>
+                                    <li><a href="bao4.html#love" title="러부지는 LOVE지" class="btn_content_click" data-contents-btn="nev_러부지는 LOVE지">러부지는 LOVE지</a></li>
+                                     </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btm-img"></div>
+                    <button class="btn-close">닫기</button>
+                </div>
+            </nav>
+
+            <section class="sec" id="main">
+                <button class="btn-nav">메뉴</button>
+            </section>
+
+            
+    
+
+        
+            <a href="#garden" class="btn-top" class="btn_content_click" data-contents-btn="nev_TOP">맨위로 가기</a>
+          
+
+            <section class="sec" id="garden">
+                <h2><img src="img/tit-garden.png" alt="바오패밀리 족보"></h2>
+                <p>
+                    푸릇푸릇한 유채가 자라나는<br>
+                    판다월드에 살고있는<br>
+                    바오가족을 소개합니다.
+                </p>
+                <div class="map">
+                    <img src="img/img-map.png" alt="바오패밀리 족보">
+                </div>
+                <ul id="tab">
+                    <li>
+                        <div class="tab-tit"><a href="javascript:void(0);" title="러바오"><img src="img/tit-tab-garden1.png" alt="러바오" /></a></div>
+                        <div class="tab-cont">
+                            <ul class="slider">
+                                <li><img src="img/img-tab-garden1.jpg" alt="러바오" /></li>
+                            </ul>
+                            <p>
+                                2012년 7월 28일생<br>
+                                이름 러바오는 '기쁨을 주는 보물'이라는 뜻이지!<br>
+                                보름달 같이 크고 뽀얀 얼굴에 잘생긴 귀염상이야.<br>
+                                편식은 심하지만 보기보다 깔끔한 성격의 소유자라구!
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tab-tit"><a href="javascript:void(0);" title="아이바오"><img src="img/tit-tab-garden2.png" alt="아이바오" /></a></div>
+                        <div class="tab-cont">
+                            <ul class="slider">
+                                <li><img src="img/img-tab-garden2.jpg" alt="아이바오" /></li>
+                            </ul>
+                            <p>
+                                2013년 7월 13일생<br> 
+                                이름 아이바오는 사랑스러운 보물이라는 뜻이야. <br> 
+                                성격이 온순하고 수줍음이 많고,<br>
+                                호기심이 많아 새로운 것이 있으면 궁금해서 참지 못해!
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tab-tit"><a href="javascript:void(0);" title="푸바오"><img src="img/tit-tab-garden3.png" alt="푸바오" /></a></div>
+                        <div class="tab-cont">
+                            <ul class="slider">
+                                <li><img src="img/img-tab-garden3.jpg" alt="푸바오" /></li>
+                            </ul>
+                            <p>
+                                2020년 7월 20일생<br>
+                                이름 푸바오는 '행복을 주는 보물'이라는 뜻이야.<br>
+                                대한민국에서 태어난 최초의 판다지!<br>
+                                이곳저곳을 돌아다니며 탐색을 즐기는 호기심쟁이야.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tab-tit"><a href="javascript:void(0);" title="루이바오&후이바오"><img src="img/tit-tab-garden4.png" alt="루이바오&후이바오" /></a></div>
+                        <div class="tab-cont">
+                            <ul class="slider">
+                                <li><img src="img/img-tab-garden4.jpg" alt="루이바오&후이바오" /></li>
+                            </ul>
+                            <p>
+                                2023년 7월 7일생 쌍둥이야.<br>
+                                언니 루이바오는 ‘슬기로운 보물’,<br>
+                                동생 후이바오는 ‘빛나는 보물’이라는 뜻이야.<br>
+                                판다월드 대표 귀염둥이 뚠빵걸즈지!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <p style="font-family: Pretendard;">image cr. everland resort</p>
+            <footer id="footer">
+                <p class="copyright">2416590 박지혜</p>
+            </footer>
+            
+
+
+            <script type="text/javascript">
+                isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEinitial|Opera Mini)/);
+        
+                var $body = $('body, html'),
+			$wrapper = $('.wrapper');
+
+		if ($(window).width() > 720) {
+			$wrapper.scroll(function () {
+				let position = $wrapper.scrollTop();
+				if (position > 720) {
+					$('.btn-top').fadeIn(200);
+				} else {
+					$('.btn-top').fadeOut(200);
+				}
+			});
+		} else {
+			$(window).scroll(function () {
+				let position = $(window).scrollTop();
+				if (position > 420) {
+					$('.btn-top').fadeIn(200);
+				} else {
+					$('.btn-top').fadeOut(200);
+				}
+			});
+		}
+
+        $(document).ready(function () {
+
+
+$(document).on('click', '#main .btn-nav', function () {
+    $('body').css('overflow', 'hidden');
+    $('nav').fadeIn(150);
+});
+
+$(document).on('click', 'nav .btn-close, nav .depth2 > li > a, nav .logo > a', function () {
+    $('body').removeAttr('style');
+    $('nav').delay(150).fadeOut(150);
+    $('nav .depth1 li').removeAttr('class');
+    $('nav .depth2').slideUp(200);
+});
+
+$(document).on('click', 'nav .depth1 > li > a', function () {
+    if ($(this).parent('li').hasClass('on')) {
+        $(this).parent('li').removeClass('on');
+        $(this).parent('li').children('.depth2').slideUp(200);
+    } else {
+        $('nav .depth1 li').removeAttr('class');
+        $(this).parents('.depth1').find('.depth2').slideUp(200);
+        $(this).parent('li').toggleClass('on');
+        $(this).parent('li').children('.depth2').slideToggle(200);
+    }
+});
+
+$('.nav-sub ul > li > a').each(function (i) {
+    $(this).click(function (e) {
+        e.preventDefault();
+        var idx = $(this).parents('li').index();
+        var id = $(this).parents('ul').attr('data-id');
+        console.log("idx", idx);
+        console.log("id", id);
+        window.location.href = 'bao2.html#' + id;
+        $('.slider-wrap').slick('slickGoTo', idx);
+    });
+});
+        
+
+			$('#tab li .tab-tit > a').click(function () {
+				console.log("클릭")
+				var hasEnd = $(this).parents('li').hasClass('on');
+				if (!hasEnd) {
+					$(this).parents('li').addClass('on');
+					$(this).parents('li').siblings('li').removeClass('on');
+				} else {
+					$(this).parents('li').removeClass('on');
+				}
+				$('.slider').slick('setPosition');
+			});
+
+			$('.slider-wrap').slick({ arrows: true, dots: false, fade: true, infinite: true });
+                    
+
+if (durl.indexOf('quiz') != -1) { 
+    setTimeout(function () {
+        window.location.href = 'bao2.html#event';
+        $('.slider-wrap').slick('slickGoTo', 2);
+    }, 500)
+}
+});
+
+function goLink(pclink, mobilelink, blank) {
+var link = pclink;
+if (mobilelink) {
+    var check = false;
+    (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true })(navigator.userAgent || navigator.vendor || window.opera);
+    if (check) link = mobilelink;
+}
+if (blank) window.open(link);
+else location.href = link;
+return false;
+}
+
+
+            </script>
+    </body>
+
+
+</html>
